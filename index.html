@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bin2Dec</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
+    <style>
+        html {
+            background:
+            linear-gradient(
+            rgba(0, 0, 0, 0.7), 
+            rgba(0, 0, 0, 0.7)
+            ),
+            url("https://images.hdqwalls.com/wallpapers/the-falling-astronaut-4k-r8.jpg") no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: rgb(255, 255, 255);
+            font-family: 'Pacifico', cursive;
+        }
+        .box {
+            margin: 100px;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 50px;
+            padding: 50px;
+        }
+        hr {
+            color: rgb(255, 255, 255);
+        }
+        .outbot {
+            border-radius: 10px;
+            font-family: 'Pacifico';
+        }
+        .outbot:hover {
+            color: rgb(255, 255, 255);
+        }
+        input[type=text] {
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Pacifico';
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Bin2Dec</h1>
+    </center>
+    <div class="box">
+        <center>
+            <label for="bin" class="input">Binary:</label>
+            <input type="text" id="bin" name="bin"><br><br>
+            <hr/>
+            <output type="text" id="dec" readonly=""></output>
+            <p></p>
+            <input class="outbot" type="button" value="CONVERT" onclick="convert()">
+        </center>
+        <script>
+            function convert() {
+                const binary = document.getElementById('bin').value;
+                if (binary === '') return document.getElementById('dec').value = "enter a binary number";
+                binary.split('').map((char) => {
+                    if (char !== '0' && char !== '1') return document.getElementById('dec').value = "enter a binary number";
+                });
+                const decimal = parseInt(binary, 2);
+                document.getElementById('dec').value = decimal;
+                return true;
+        }
+    </script>
+</div>
+
+
+</body>
+</html>
